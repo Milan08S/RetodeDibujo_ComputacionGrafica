@@ -70,6 +70,8 @@
       <Filter>cwc\include</Filter>
     </ClInclude>
     <ClInclude Include="Triangulos.h" />
+    <ClInclude Include="Teteras.h" />
+    <ClInclude Include="Cuadrados.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="glew\source\glew.c">
@@ -155,6 +157,8 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Triangulos.cpp" />
+    <ClCompile Include="Teteras.cpp" />
+    <ClCompile Include="Cuadrados.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="freeglut\source\freeglutdll.def">

@@ -10,6 +10,8 @@
 #include "glsl.h"
 #include <time.h>
 #include "Triangulos.h"
+#include "Teteras.h"
+#include "Cuadrados.h"
 //-----------------------------------------------------------------------------
 
 
@@ -23,6 +25,8 @@ protected:
    float timer010;  // timer counting 0->1->0
    bool bUp;        // flag if counting up or down.
    Triangulos* miTriangulo;
+   Teteras* miTetera;
+   Cuadrados* miCuadrado;
 
 public:
 	myWindow(){}
@@ -42,9 +46,9 @@ public:
          //transformaciones globales
          //rotacion global a todos los objetos
          //glRotatef(timer010*360, 0.5, 1.0f, 0.1f);
-         glTranslatef(0, 0, -5);
+         glTranslatef(0, 0, -7);
 
-         glPushMatrix();
+         /*glPushMatrix();
          glutSolidSphere(0.5, 20,20);
          glPopMatrix();
 
@@ -70,9 +74,14 @@ public:
          glPushMatrix();
          glTranslatef(0,-1.5, 0);
          glutSolidCube(0.5);
-         glPopMatrix();
+         glPopMatrix();*/
 
-         miTriangulo->DibujarTriangulos(0,2,0);
+         miCuadrado->DibujarCuadrados(-3, 3, 0, 30, -1);
+         miCuadrado->DibujarCuadrados(3, 3, 0, 45, 1);
+         miTetera->DibujarTeteras(-3, 0, 0);
+         miTetera->DibujarTeteras(3, 0, 0);
+         miTetera->DibujarTeteras(0, -3, 0);
+         miTriangulo->DibujarTriangulos(0, 3, 0);
 
          glPopMatrix();
       if (shader) shader->end();
@@ -91,6 +100,8 @@ public:
 	virtual void OnInit()
 	{
         miTriangulo = new Triangulos();
+        miTetera = new Teteras();
+        miCuadrado = new Cuadrados();
 		glClearColor(0.5f, 0.5f, 1.0f, 0.0f);
 		glShadeModel(GL_SMOOTH);
 		glEnable(GL_DEPTH_TEST);
